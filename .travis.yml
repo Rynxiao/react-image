@@ -4,7 +4,7 @@ node_js:
 
 cache: yarn
 
-install: yarn install
+install: yarn
 script:
   - yarn lint
   - yarn test
