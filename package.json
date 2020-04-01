@@ -1,6 +1,6 @@
 {
   "name": "react-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "basic image show component",
   "main": "./dist/index.js",
   "scripts": {
