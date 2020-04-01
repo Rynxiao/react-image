@@ -13,7 +13,10 @@ jobs:
     - stage: npm release
       if: tag IS present
       node_js: "12"
-      script: yarn build
+      script:
+        - rm -rf dist
+        - yarn build
+        - cp package.json dist/package.json
       before_deploy:
         - cd dist
       deploy:
