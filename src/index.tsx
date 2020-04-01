@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default () => (
+const ReactImage = () => (
   <div>React Image</div>
 );
+
+export default ReactImage;
