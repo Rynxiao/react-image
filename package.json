@@ -4,9 +4,29 @@
   "description": "basic image show component",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config ./config/webpack.prod.js",
+    "start:dev": "webpack-dev-server --config ./config/webpack.dev.conf.js"
   },
-  "keywords": ["react", "image"],
+  "keywords": [
+    "react",
+    "image"
+  ],
   "author": "ryn",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.31",
+    "@types/react-dom": "^16.9.6",
+    "html-webpack-plugin": "^4.0.3",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  }
 }
