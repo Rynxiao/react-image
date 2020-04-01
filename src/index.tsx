@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ReactImagePreview = () => (
+const Image = () => (
   <div>React Image Preview</div>
 );
 
-export default ReactImagePreview;
+export default Image;

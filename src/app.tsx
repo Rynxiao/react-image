@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ReactImagePreview from '.';
+import Image from '.';
 
 ReactDOM.render(
-  <ReactImagePreview />,
+  <Image />,
   document.getElementById('root'),
 );
