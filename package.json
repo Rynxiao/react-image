@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.conf.js",
-    "start:dev": "webpack-dev-server --config ./config/webpack.dev.conf.js"
+    "start:dev": "webpack-dev-server --config ./config/webpack.dev.conf.js",
+    "lint": "eslint --ext .ts --ext .tsx src/",
+    "lint:fix": "eslint --ext .ts --ext .tsx --fix src/"
   },
   "keywords": [
     "react",

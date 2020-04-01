@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import ReactImage from ".";
+import ReactImage from '.';
 
 ReactDOM.render(
   <ReactImage />,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
