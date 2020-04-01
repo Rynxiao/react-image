@@ -1,12 +1,12 @@
 {
   "name": "rt-image",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "basic image show component",
   "main": "index.js",
   "homepage": "https://github.com/Rynxiao/react-image#readme",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Rynxiao/react-image.git"
+    "type": "git",
+    "url": "https://github.com/Rynxiao/react-image.git"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.conf.js",
@@ -63,6 +63,6 @@
     }
   },
   "bugs": {
-    "url" : "https://github.com/Rynxiao/react-image/issues"
+    "url": "https://github.com/Rynxiao/react-image/issues"
   }
 }
