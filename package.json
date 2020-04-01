@@ -1,5 +1,5 @@
 {
-  "name": "react-image",
+  "name": "react-image-preview",
   "version": "1.0.2",
   "description": "basic image show component",
   "main": "index.js",

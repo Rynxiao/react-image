@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import ReactImage from '..';
+import ReactImagePreview from '..';
 
 describe('Index', () => {
   it('should render correctly', () => {
-    const wrapper = shallow(<ReactImage />);
+    const wrapper = shallow(<ReactImagePreview />);
     expect(wrapper).toMatchSnapshot();
   });
 });
