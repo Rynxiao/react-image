@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 import Image from '.';
 
 ReactDOM.render(
-  <Image />,
+  <Image src="https://xxxx" />,
   document.getElementById('root'),
 );
