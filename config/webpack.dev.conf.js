@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
+
 const distPath = path.resolve(__dirname, '../dist');
 const srcPath = path.resolve(__dirname, '../src');
 const base = require('./webpack.base.conf');
@@ -12,17 +13,17 @@ module.exports = merge(base, {
   entry: path.join(srcPath, 'app.tsx'),
   output: {
     path: distPath,
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(srcPath, 'index.html'),
-      filename: "index.html",
+      filename: 'index.html',
       minify: {
         removeAttributeQuotes: true,
         collapseWhitespace: true,
       },
-      hash: true
+      hash: true,
     }),
   ],
   devServer: {
@@ -32,5 +33,5 @@ module.exports = merge(base, {
     historyApiFallback: true,
     hot: true,
     open: true,
-  }
+  },
 });

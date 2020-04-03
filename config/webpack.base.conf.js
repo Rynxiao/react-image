@@ -1,4 +1,5 @@
 const path = require('path');
+
 const root = path.resolve(__dirname, '..');
 
 module.exports = {
@@ -8,16 +9,11 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
-        options: {
-          compilerOptions: {
-            outDir: './dist'
-          }
-        },
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: 'source-map-loader',
       },
       {
         test: /\.css$/i,
@@ -30,7 +26,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: 'rt-image-[local]',
+              },
             },
           },
           {

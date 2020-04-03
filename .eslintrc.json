@@ -26,7 +26,7 @@
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".js"] }],
-    "import/extensions": [1, "never", { "svg": "always" }],
+    "import/extensions": [1, "never", { "svg": "always", "scss": "always" }],
     "import/no-unresolved": [2]
   },
   "settings": {
@@ -35,7 +35,8 @@
         "extensions": [
           ".ts",
           ".tsx",
-          ".js"
+          ".js",
+          ".scss"
         ]
       }
     }
