@@ -36,7 +36,17 @@ module.exports = {
           },
         ],
       },
-      { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader' },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images',
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader?classPrefix=rt-image',
+      },
     ],
   },
   resolve: {
