@@ -18,3 +18,22 @@
     fill: #222;
   }
 }
+
+@-webkit-keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+.loading {
+  width: 25%;
+  animation: spin 1.4s infinite linear;
+  transform-origin: center center;
+  :global {
+    .rt-image-icon {
+      svg {
+        fill: #222;
+      }
+    }
+  }
+}
+
