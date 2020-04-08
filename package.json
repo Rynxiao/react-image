@@ -73,5 +73,8 @@
   },
   "bugs": {
     "url": "https://github.com/Rynxiao/react-image/issues"
+  },
+  "engines": {
+    "node": "12.13.0"
   }
 }
