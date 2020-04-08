@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.module.scss';
 import Error from './components/error';
-import { loadImage } from './utils';
+import { getDisplayImageSize, loadImage } from './utils';
 import Loading from './components/loading';
 import LOADING_STATE from './utils/constants';
 
@@ -39,11 +39,13 @@ const Image: React.FC<Props> = ({
   useEffect(() => {
     if (src) {
       setState(LOADING_STATE.LOADING);
-      loadImage(src)
-        .then((img: HTMLImageElement) => (
-          setState({ ...LOADING_STATE.SUCCESS, image: img })
-        ))
-        .catch(() => setState(LOADING_STATE.FAIL));
+      loadImage(src).then((img: HTMLImageElement) => {
+        const { displayWidth, displayHeight } = getDisplayImageSize(img, width, height);
+        const displayImage = img;
+        displayImage.width = displayWidth;
+        displayImage.height = displayHeight;
+        setState({ ...LOADING_STATE.SUCCESS, image: displayImage });
+      }).catch(() => setState(LOADING_STATE.FAIL));
     }
   }, [loadImage, src]);
 
@@ -54,14 +56,16 @@ const Image: React.FC<Props> = ({
       body = <Loading />;
     } else if (isError) {
       body = <Error message={errorMessage} />;
-    } else {
+    } else if (image) {
       body = (
         <>
           {React.createElement(
             'img',
             {
-              src: image && image.src,
+              src: image.src,
               alt: description,
+              width: image.width,
+              height: image.height,
               loading: 'lazy',
             },
           )}
