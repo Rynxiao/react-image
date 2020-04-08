@@ -1,6 +1,6 @@
 {
   "name": "rt-image",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "basic image show component",
   "main": "index.js",
   "homepage": "https://github.com/Rynxiao/react-image#readme",
