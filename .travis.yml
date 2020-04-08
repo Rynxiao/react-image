@@ -11,7 +11,6 @@ script:
 jobs:
   include:
     - stage: npm release
-      if: tag IS present
       node_js: "12"
       script:
         - rm -rf dist
@@ -22,7 +21,5 @@ jobs:
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
-        api_key: "$NPM_TOKEN"
+        api_token: "$NPM_TOKEN"
         skip_cleanup: true
-        on:
-          tags: true
