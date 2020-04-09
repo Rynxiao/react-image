@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 import Image from '.';
 
 ReactDOM.render(
-  <Image src="http://q8ecjy9yo.bkt.clouddn.com/4.jpg" errorMessage="some thing bad happen" />,
+  <Image src="https://p3.pstatp.com/large/6c2a0008d4bf2b6df897" errorMessage="some thing bad happen" />,
   document.getElementById('root'),
 );

@@ -32,7 +32,7 @@ const Image: React.FC<Props> = ({
   errorMessage,
 }) => {
   const [state, setState] = useState<State>(LOADING_STATE.INITIAL);
-  const imageStyle = { width, height };
+  const imageStyle = { width: `${width}px`, height: `${height}px` };
   const imageWrapperStyle = { ...imageStyle, ...style };
   const imageClassName = className ? `${styles.container} ${className}` : styles.container;
 
@@ -77,7 +77,7 @@ const Image: React.FC<Props> = ({
 
   return (
     <div className={imageClassName} style={imageWrapperStyle}>
-      {renderBody()}
+      <span className={styles.image}>{renderBody()}</span>
     </div>
   );
 };
