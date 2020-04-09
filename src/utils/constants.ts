@@ -4,5 +4,7 @@ const LOADING_STATE = {
   LOADING: { loading: true, isError: false, image: null as null },
   SUCCESS: { loading: false, isError: false },
 };
+export const NETWORK_ERROR = 'There was a network error.';
+export const IMAGE_LOAD_ERROR = 'Image didn\'t load successfully; error code:';
 
 export default LOADING_STATE;
