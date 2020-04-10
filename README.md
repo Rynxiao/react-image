@@ -22,7 +22,7 @@ npm install rt-image
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import Image from '.';
+import Image from 'rt-image';
 
 const images = [
   'https://image.shutterstock.com/image-photo/white-transparent-leaf-on-mirror-260nw-1029171697.jpg',
