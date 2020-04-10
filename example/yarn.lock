@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-rt-image@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/rt-image/-/rt-image-1.0.11.tgz#ff94b04e685a8f90f8c97c43714296577a25bbbe"
-  integrity sha512-IXU7ztbncRdtVMf2JoP/khyqyrd8TQ6nq1vkjv9NlJ6J/3mv3/F4TKNGuCWdXNj5gjikYqfIx/xbbMyupiFbZg==
+rt-image@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/rt-image/-/rt-image-1.0.13.tgz#f23f7c524ba89ee34f646debdbe258f49f89e92b"
+  integrity sha512-YXxFzx0d8I9FpQvPyNsU4XHaT39TlKm7oBpe6XmbPWaQYhIie6L3oDOUHG2bFGqMR9iJJwy159QVNV0I2G6Kig==
