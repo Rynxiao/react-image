@@ -7476,6 +7476,11 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
+rt-image@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/rt-image/-/rt-image-1.0.10.tgz#6dc5ef7a18da04c5af7fd1c04dc78197fb21a2eb"
+  integrity sha512-+9qJGH0ZOZLfKR3p7luuVhBB/6TG42Xjbk38dr/L0JvH5KYgqb403ZxkUoarj8HjpLP1KkDdf0Dk6Ky13mQqQw==
+
 run-async@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.4.0.tgz#e59054a5b86876cfae07f431d18cbaddc594f1e8"
