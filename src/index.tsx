@@ -14,6 +14,7 @@ export interface Props {
   style?: object;
   description?: string;
   errorMessage?: string;
+  headers?: object;
 }
 
 export interface State {
@@ -30,6 +31,7 @@ const Image: React.FC<Props> = ({
   style,
   description,
   errorMessage,
+  headers,
 }) => {
   const [state, setState] = useState<State>(LOADING_STATE.INITIAL);
   const imageStyle = { width: `${width}px`, height: `${height}px` };
@@ -39,7 +41,7 @@ const Image: React.FC<Props> = ({
   useEffect(() => {
     if (src) {
       setState(LOADING_STATE.LOADING);
-      loadImage(src).then((img: HTMLImageElement) => {
+      loadImage(src, headers).then((img: HTMLImageElement) => {
         const { displayWidth, displayHeight } = getDisplayImageSize(img, width, height);
         const displayImage = img;
         displayImage.width = displayWidth;
@@ -89,6 +91,7 @@ Image.defaultProps = {
   style: {},
   description: '',
   errorMessage: '',
+  headers: null,
 };
 
 Image.propTypes = {
@@ -99,6 +102,7 @@ Image.propTypes = {
   style: PropTypes.shape({}),
   description: PropTypes.string,
   errorMessage: PropTypes.string,
+  headers: PropTypes.shape({}),
 };
 
 export type ImageProps = Props;

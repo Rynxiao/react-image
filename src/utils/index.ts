@@ -14,11 +14,22 @@ export const getImage = (src: string) => (
   })
 );
 
-export const loadImageWithXHR = (url: string) => (
+export const setXHRHttpRequestHeader = (request: XMLHttpRequest, headers: object) => {
+  if (headers) {
+    const keys = Object.keys(headers);
+    keys.forEach((key) => {
+      request.setRequestHeader(key, headers[key]);
+    });
+  }
+  return request;
+};
+
+export const loadImageWithXHR = (url: string, headers: object) => (
   new Promise(((resolve, reject) => {
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.responseType = 'blob';
+    setXHRHttpRequestHeader(request, headers);
 
     request.onload = () => {
       if (request.status === 200) {
@@ -36,10 +47,10 @@ export const loadImageWithXHR = (url: string) => (
   }))
 );
 
-export const loadImage = async (imageUrl: string, headers: Headers = null) => {
+export const loadImage = async (imageUrl: string, headers: object = null) => {
   let src = imageUrl;
   if (!isEmptyObject(headers)) {
-    const response = await loadImageWithXHR(imageUrl);
+    const response = await loadImageWithXHR(imageUrl, headers);
     src = window.URL.createObjectURL(response);
   }
   return getImage(src);
