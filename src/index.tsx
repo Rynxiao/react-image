@@ -5,23 +5,7 @@ import Error from './components/error';
 import { getDisplayImageSize, loadImage } from './utils';
 import Loading from './components/loading';
 import LOADING_STATE from './utils/constants';
-
-export interface Props {
-  src: string;
-  width?: number;
-  height?: number;
-  className?: string;
-  style?: object;
-  description?: string;
-  errorMessage?: string;
-  headers?: object;
-}
-
-export interface State {
-  loading: boolean;
-  isError: boolean;
-  image: HTMLImageElement | null;
-}
+import { Props, State } from './types';
 
 const Image: React.FC<Props> = ({
   src,

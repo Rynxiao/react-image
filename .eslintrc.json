@@ -6,7 +6,9 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -28,7 +30,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".js"] }],
     "import/extensions": [1, "never", { "svg": "always", "scss": "always" }],
     "import/no-unresolved": [2],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
   "settings": {
     "import/resolver": {

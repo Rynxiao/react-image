@@ -1,8 +1,7 @@
 import { IMAGE_LOAD_ERROR, NETWORK_ERROR } from './constants';
+import { XMLHttpRequestHeaders } from '../types';
 
-export const isEmptyObject = (obj: object) => (
-  !!obj && Object.keys(obj).length === 0 && obj.constructor === Object
-);
+let lastRequest: XMLHttpRequest;
 
 export const getImage = (src: string) => (
   new Promise((resolve, reject) => {
@@ -14,17 +13,20 @@ export const getImage = (src: string) => (
   })
 );
 
-export const setXHRHttpRequestHeader = (request: XMLHttpRequest, headers: object) => {
+export const setXHRHttpRequestHeader = (
+  request: XMLHttpRequest,
+  headers: XMLHttpRequestHeaders,
+) => {
   if (headers) {
     const keys = Object.keys(headers);
-    keys.forEach((key) => {
+    keys.forEach((key: string) => {
       request.setRequestHeader(key, headers[key]);
     });
   }
   return request;
 };
 
-export const loadImageWithXHR = (url: string, headers: object) => (
+export const loadImageWithXHR = (url: string, headers: XMLHttpRequestHeaders) => (
   new Promise(((resolve, reject) => {
     const request = new XMLHttpRequest();
     request.open('GET', url);
@@ -43,16 +45,18 @@ export const loadImageWithXHR = (url: string, headers: object) => (
       reject(new Error(NETWORK_ERROR));
     };
 
+    if (lastRequest) {
+      lastRequest.abort();
+    }
+
+    lastRequest = request;
     request.send();
   }))
 );
 
-export const loadImage = async (imageUrl: string, headers: object = null) => {
-  let src = imageUrl;
-  if (!isEmptyObject(headers)) {
-    const response = await loadImageWithXHR(imageUrl, headers);
-    src = window.URL.createObjectURL(response);
-  }
+export const loadImage = async (imageUrl: string, headers: XMLHttpRequestHeaders = null) => {
+  const response = await loadImageWithXHR(imageUrl, headers);
+  const src = window.URL.createObjectURL(response);
   return getImage(src);
 };
 

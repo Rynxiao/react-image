@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Image from '.';
 
-ReactDOM.render(
-  <Image src="https://p3.pstatp.com/large/6c2a0008d4bf2b6df897" errorMessage="some thing bad happen" />,
-  document.getElementById('root'),
-);
+const App = () => {
+  const [src, setSrc] = useState(
+    'http://q8ecjy9yo.bkt.clouddn.com/test.png',
+  );
+  useEffect(() => {
+    setTimeout(() => {
+      setSrc(
+        'http://q8ecjy9yo.bkt.clouddn.com/th.jpeg',
+      );
+    });
+  }, [src]);
+
+  return (
+    <div className="App">
+      <Image src={src} errorMessage="some thing bad happen" />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
