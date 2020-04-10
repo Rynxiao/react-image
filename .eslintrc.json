@@ -31,7 +31,8 @@
     "import/extensions": [1, "never", { "svg": "always", "scss": "always" }],
     "import/no-unresolved": [2],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off"
   },
   "settings": {
     "import/resolver": {
