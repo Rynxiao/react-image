@@ -6,6 +6,7 @@ import { getDisplayImageSize, loadImage } from './utils';
 import Loading from './components/loading';
 import LOADING_STATE from './utils/constants';
 import { Props, State } from './types';
+import ImageRequest from './utils/imageRequest';
 
 const Image: React.FC<Props> = ({
   src,
@@ -18,6 +19,7 @@ const Image: React.FC<Props> = ({
   headers,
 }) => {
   const [state, setState] = useState<State>(LOADING_STATE.INITIAL);
+  const [request] = useState<ImageRequest>(new ImageRequest());
   const imageStyle = { width: `${width}px`, height: `${height}px` };
   const imageWrapperStyle = { ...imageStyle, ...style };
   const imageClassName = className ? `${styles.container} ${className}` : styles.container;
@@ -25,7 +27,7 @@ const Image: React.FC<Props> = ({
   useEffect(() => {
     if (src) {
       setState(LOADING_STATE.LOADING);
-      loadImage(src, headers).then((img: HTMLImageElement) => {
+      loadImage(request, src, headers).then((img: HTMLImageElement) => {
         const { displayWidth, displayHeight } = getDisplayImageSize(img, width, height);
         const displayImage = img;
         displayImage.width = displayWidth;

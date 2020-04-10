@@ -1,7 +1,6 @@
-import { IMAGE_LOAD_ERROR, NETWORK_ERROR } from './constants';
+import { NETWORK_ERROR } from './constants';
 import { XMLHttpRequestHeaders } from '../types';
-
-let lastRequest: XMLHttpRequest;
+import ImageRequest from './imageRequest';
 
 export const getImage = (src: string) => (
   new Promise((resolve, reject) => {
@@ -13,49 +12,12 @@ export const getImage = (src: string) => (
   })
 );
 
-export const setXHRHttpRequestHeader = (
-  request: XMLHttpRequest,
-  headers: XMLHttpRequestHeaders,
+export const loadImage = async (
+  imageRequest: ImageRequest,
+  imageUrl: string,
+  headers: XMLHttpRequestHeaders = null,
 ) => {
-  if (headers) {
-    const keys = Object.keys(headers);
-    keys.forEach((key: string) => {
-      request.setRequestHeader(key, headers[key]);
-    });
-  }
-  return request;
-};
-
-export const loadImageWithXHR = (url: string, headers: XMLHttpRequestHeaders) => (
-  new Promise(((resolve, reject) => {
-    const request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'blob';
-    setXHRHttpRequestHeader(request, headers);
-
-    request.onload = () => {
-      if (request.status === 200) {
-        resolve(request.response);
-      } else {
-        reject(new Error(`${IMAGE_LOAD_ERROR}${request.statusText}`));
-      }
-    };
-
-    request.onerror = () => {
-      reject(new Error(NETWORK_ERROR));
-    };
-
-    if (lastRequest) {
-      lastRequest.abort();
-    }
-
-    lastRequest = request;
-    request.send();
-  }))
-);
-
-export const loadImage = async (imageUrl: string, headers: XMLHttpRequestHeaders = null) => {
-  const response = await loadImageWithXHR(imageUrl, headers);
+  const response = await imageRequest.request(imageUrl, headers);
   const src = window.URL.createObjectURL(response);
   return getImage(src);
 };

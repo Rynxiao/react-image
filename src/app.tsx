@@ -18,6 +18,8 @@ const App = () => {
   return (
     <div className="App">
       <Image src={src} errorMessage="some thing bad happen" />
+      <Image src="http://q8ecjy9yo.bkt.clouddn.com/th.jpeg" errorMessage="some thing bad happen" />
+      <Image src="http://q8ecjy9yo.bkt.clouddn.com/test.png" errorMessage="some thing bad happen" />
     </div>
   );
 };
