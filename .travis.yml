@@ -17,6 +17,7 @@ jobs:
         - rm -rf dist
         - yarn build
         - cp package.json dist/package.json
+        - cp README.md dist/README.md
       before_deploy:
         - cd dist
       deploy:
