@@ -1,6 +1,6 @@
 {
   "name": "rt-image",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "basic image show component",
   "types": "index.d.ts",
   "main": "index.js",
