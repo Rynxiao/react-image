@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Image style={{ marginRight: '5px' }} src={src} errorMessage="some thing bad happen" />
+      <Image style={{ marginRight: '5px' }} width={50} height={100} src={src} errorMessage="some thing bad happen" />
       <Image style={{ marginRight: '5px' }} src={images[2]} errorMessage="load image error" />
       <Image src={images[3]} loader={() => <div>loading...</div>} />
     </div>

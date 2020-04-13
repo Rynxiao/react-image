@@ -38,6 +38,14 @@ export const getDisplayImageSize = (
       displayWidth = wrapperWidth;
       displayHeight = parseInt(`${(1 / ratio) * wrapperWidth}`, 10);
     }
+  } else if (ratio === 1) {
+    if (imageWidth > wrapperWidth) {
+      displayWidth = wrapperWidth;
+      displayHeight = wrapperWidth;
+    } else {
+      displayWidth = wrapperHeight;
+      displayHeight = wrapperHeight;
+    }
   } else if (imageHeight > wrapperHeight) {
     displayWidth = parseInt(`${ratio * wrapperHeight}`, 10);
     displayHeight = wrapperHeight;
