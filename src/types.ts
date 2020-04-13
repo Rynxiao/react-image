@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface XMLHttpRequestHeaders {
   [key: string]: string;
 }
@@ -7,10 +9,12 @@ export interface Props {
   width?: number;
   height?: number;
   className?: string;
-  style?: object;
+  style?: React.CSSProperties;
   description?: string;
   errorMessage?: string;
   headers?: XMLHttpRequestHeaders;
+  loader?: () => React.ReactNode | null;
+  renderError?: () => React.ReactNode | null;
 }
 
 export interface State {

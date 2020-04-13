@@ -16,7 +16,9 @@ const Image: React.FC<Props> = ({
   style,
   description,
   errorMessage,
+  renderError,
   headers,
+  loader,
 }) => {
   const [state, setState] = useState<State>(LOADING_STATE.INITIAL);
   const [request] = useState<ImageRequest>(new ImageRequest());
@@ -41,9 +43,9 @@ const Image: React.FC<Props> = ({
     let body;
     const { isError, loading, image } = state;
     if (loading) {
-      body = <Loading />;
+      body = loader ? loader() : <Loading />;
     } else if (isError) {
-      body = <Error message={errorMessage} />;
+      body = renderError ? renderError() : <Error message={errorMessage} />;
     } else if (image) {
       body = (
         <>
@@ -78,6 +80,8 @@ Image.defaultProps = {
   description: '',
   errorMessage: '',
   headers: null,
+  loader: null,
+  renderError: null,
 };
 
 Image.propTypes = {
@@ -89,6 +93,8 @@ Image.propTypes = {
   description: PropTypes.string,
   errorMessage: PropTypes.string,
   headers: PropTypes.shape({}),
+  loader: PropTypes.func,
+  renderError: PropTypes.func,
 };
 
 export type ImageProps = Props;

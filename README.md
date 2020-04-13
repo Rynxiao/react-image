@@ -40,7 +40,6 @@ const App = () => {
       <Image style={{ marginRight: '5px' }} src={src} errorMessage="some thing bad happen" />
       <Image style={{ marginRight: '5px' }} src={images[2]} errorMessage="load image error" />
       <Image src={images[3]} />
-      <Image src={images[3]} headers={{ Authorization: 'xxx' }} />
     </div>
   );
 };
@@ -48,18 +47,37 @@ const App = () => {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
+#### request image width headers
+
+```typescript jsx
+<Image src="https://xxx.images.com/11111" headers={{ Authorization: 'xxx' }} />
+```
+#### custom image loader
+
+```typescript jsx
+<Image src="https://xxx.images.com/11111" loader={() => <div>loading...</div>} />
+```
+#### custom error displayer
+```typescript jsx
+<Image src="https://xxx.images.com/11111" renderError={() => <div>some error happens</div>} />
+```
+
 ![example](./example/example.gif)
 
 ### Properties
 
-- **src**: image url
-- **width**: image component width
-- **height**: image component height, default same with width
-- **className**: custom className to image component
-- **style**: styles
-- **description**: used as image `alt` currently
-- **errorMessage**: custom error message
-- **headers**: request image width headers
+|   | type  | description  | required |
+|:---|:---|:---|:---|
+| src  | string  | image url  | true |
+| width  | number  | image component width   | false |
+| height  | number  | image component height, default same with width  | false |
+| className  | string  | custom className to image component  | false |
+| style  | React.CSSProperties  | styles  | false |
+| description  | string  | used as image `alt` currently  | false |
+| errorMessage  | string  | custom error message  | false |
+| headers  | object  | request headers  | false |
+| loader  | () => React.ReactNode / null  | custom image loader  | false |
+| renderError  |() => React.ReactNode / null   | custom error displayer  | false |
 
 ## License
 

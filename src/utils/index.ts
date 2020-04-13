@@ -8,6 +8,7 @@ export const getImage = (src: string) => (
     image.onload = () => resolve(image);
     image.onerror = () => reject(new Error(NETWORK_ERROR));
     image.src = src;
+    image.crossOrigin = '';
     return image;
   })
 );
